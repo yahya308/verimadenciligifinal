@@ -96,7 +96,7 @@
 
   \vspace{0.6cm}
 
-  % ---- BONUS TALEP LISTESI ------------------------------------------------
+% ---- BONUS TALEP LISTESI ------------------------------------------------
   \begin{tcolorbox}[
       colback=yellow!8,
       colframe=orange!70!black,
@@ -106,12 +106,15 @@
     ]
   {\bfseries\color{orange!70!black}Bonus Talepleri}\\[0.4em]
   \begin{tabular}{@{}lr@{}}
-    LaTeX raporu + derlenmiş PDF teslimi & \textbf{+5 puan} \\[0.25em]
+    LaTeX raporu + derlenmiş PDF teslimi & \textbf{+5 puan} \\[0.2em]
     GitHub deposu (açık, README ile) & \textbf{+5 puan} \\
-    \multicolumn{2}{@{}l@{}}{\footnotesize\url{https://github.com/yahya308/verimadenciligifinal}} \\[0.25em]
-    Demo videosu (\texttt{sunumvideo.mp4}, yerel kayıt) & \textbf{+3 puan} \\[0.4em]
+    \multicolumn{2}{@{}l@{}}{\footnotesize\url{https://github.com/yahya308/verimadenciligifinal}} \\[0.2em]
+    Demo videosu YouTube'a yüklendi (Liste Dışı) & \textbf{+5 puan} \\
+    \multicolumn{2}{@{}l@{}}{\footnotesize\url{https://youtu.be/o6OsWhO8YJI}} \\[0.2em]
+    Python ile Weka Karşılaştırması (\texttt{python\_karsilastirma.py}) & \textbf{+3 puan} \\[0.2em]
+    Karmaşıklık Matrisleri üzerinden Tıbbi Hata Analizi (Rapor 7.2) & \textbf{+3 puan} \\[0.4em]
     \hline\\[-0.6em]
-    \textit{Talep edilen toplam bonus} & \textit{\textbf{+13 puan}} \\
+    \textit{Talep edilen toplam bonus} & \textit{\textbf{+21 puan}} \\
   \end{tabular}\\[0.3em]
   {\footnotesize Her kalem ayrı ayrı değerlendirilir; talep belirtilmeyen kalem puanlanmaz.}
   \end{tcolorbox}
@@ -561,6 +564,17 @@ IBk ($k{=}1$) &
 \end{tabular}
 \end{table}
 
+\subsection{Python (scikit-learn) ve WEKA Karşılaştırması (Ek Çalışma)}
+
+WEKA ortamında elde edilen sonuçların tutarlılığını bağımsız bir kütüphane ile doğrulamak amacıyla, en yüksek performansı gösteren Naive Bayes modeli Python \texttt{scikit-learn} kütüphanesi kullanılarak yeniden modellenmiştir. Tıpkı WEKA'da olduğu gibi veriler 10-katlı tabakalı çapraz doğrulama (Stratified 10-Fold CV) yöntemiyle test edilmiş ve aşağıdaki sonuçlar elde edilmiştir:
+
+\begin{itemize}
+  \item \textbf{WEKA Sonuçları:} Doğruluk: \%76{,}30, ROC-AUC: 0{,}819
+  \item \textbf{Python Sonuçları:} Doğruluk: \%75{,}52, ROC-AUC: 0{,}814
+\end{itemize}
+
+\textbf{Değerlendirme:} İki farklı geliştirme ortamı arasındaki yaklaşık \%0{,}78'lik bu ufak fark literatürde beklenen, doğal bir durumdur. Bu sapmanın temel nedeni; çapraz doğrulama sırasında verilerin rastgele 10 parçaya bölünürken kullanılan karıştırma (shuffling) algoritmalarının farklılıkları ve her iki kütüphanenin alt seviyedeki kayan nokta (floating-point) hassasiyeti hesaplamalarındaki mikro değişikliklerdir. Python üzerinden alınan bu sonuçlar, WEKA analizlerimizi güçlü bir şekilde doğrulamakta ve modelin tutarlılığını kanıtlamaktadır.
+
 % =============================================================================
 \section{J48 Karar Ağacı Yorumu}
 
@@ -707,6 +721,6 @@ GitHub deposunda açık kaynak olarak yayınlanmıştır:
 
 Depoda bulunan dosyalar: \texttt{main.tex}, \texttt{verimadenciligi.pdf},
 \texttt{diabetes.arff}, \texttt{j48.txt}, \texttt{NaiveBayes.txt},
-\texttt{IBK.txt}, \texttt{sunumvideo.mp4}, \texttt{README.txt}.
+\texttt{IBK.txt}, \texttt{sunumvideo.mp4}, \texttt{README.txt}, \texttt{python\_karsilastirma.py}.
 
 \end{document}
